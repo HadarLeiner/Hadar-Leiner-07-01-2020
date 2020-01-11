@@ -27,22 +27,25 @@ export class MainComponent implements OnInit {
     this._WeatherService.getForecasts(this.locationKey).subscribe((d) => {
       this.Forecasts = Object.values(d)[1];
     });;
+    this.citiesArr = [];
   }
 
-  auto() {
-    this._WeatherService.getAuto(this.location).subscribe((d) => {
-      console.log(d);
-      for (let name in d) {
-        this.citiesArr.push(name)
+  auto(newValue) {
+    this.location = newValue;
+    this._WeatherService.getAuto(this.location).subscribe((dx) => {
+      for (let name in dx) {
+        console.log(dx[name].LocalizedName)
+        this.citiesArr.push(dx[name].LocalizedName)
       }
-      this.Current = d[0];
+      console.log(this.citiesArr)
+      this.Current = dx[0];
       this.locationKey = this.Current.Key;
     });
   }
   getWeather() {
     this._WeatherService.getCurrent(this.locationKey).subscribe((d) => {
       this.Current = d[0].Temperature.Imperial.Value;
-      this.location = this.location;//i'm not sure if i need this line
+
     });
   }
   favorites() {
