@@ -34,7 +34,6 @@ export class MainComponent implements OnInit {
     this.location = newValue;
     this._WeatherService.getAuto(this.location).subscribe((dx) => {
       for (let name in dx) {
-        console.log(dx[name].LocalizedName)
         this.citiesArr.push(dx[name].LocalizedName)
       }
       console.log(this.citiesArr)

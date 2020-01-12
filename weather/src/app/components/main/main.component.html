@@ -1,7 +1,7 @@
 <br>
 <div class="col-center col-lg-4 col-lg-offset-4">
   <div class="input-group">
-    <input list="cities" type="text" class="form-control" placeholder="tel aviv" [(ngModel)]="loction"
+    <input list="cities" type="text" class="form-control" placeholder="tel aviv" [(ngModel)]="location"
       (ngModelChange)="auto($event)">
     <datalist id="cities" *ngFor="let city of citiesArr">
       <option value="{{city}}">

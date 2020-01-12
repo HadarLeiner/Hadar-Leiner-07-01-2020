@@ -8,7 +8,7 @@ import { ServiceWeatherService } from '../../service/service-weather.service'
 })
 export class FavoritesComponent implements OnInit {
   locationsFavorites;
-  //array that came rom main and loop the loction into div 
+  //array that came from main and loop the location into div 
   constructor(private _WeatherService: ServiceWeatherService) { }
 
   ngOnInit() {
